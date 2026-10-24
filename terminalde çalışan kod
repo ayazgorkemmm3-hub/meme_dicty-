@@ -1,0 +1,31 @@
+import random
+
+print("🎮 SAYI TAHMİN OYUNU")
+print("1 ile 10 arasında bir sayı tuttum!")
+print("Tahmin etmek için 5 saniyen var.\n")
+
+answer = random.randint(1, 10)
+
+import time
+start = time.time()
+
+while time.time() - start < 5:
+    guess = input("Tahminin: ")
+
+    if not guess.isdigit():
+        print("Lütfen bir sayı gir!")
+        continue
+
+    guess = int(guess)
+
+    if guess < 1 or guess > 10:
+        print("1 ile 10 arasında bir sayı gir!")
+        continue
+
+    if guess == answer:
+        print("🎉 Doğru bildin!")
+        break
+    else:
+        print("❌ Yanlış tahmin!")
+else:
+    print(f"⏰ Süre doldu! Doğru cevap: {answer}")
